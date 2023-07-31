@@ -15,6 +15,7 @@
 		8DDBA0682A77CA9C00DCB670 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA0672A77CA9C00DCB670 /* TodoView.swift */; };
 		8DDBA06B2A77D46800DCB670 /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA06A2A77D46800DCB670 /* TaskCardView.swift */; };
 		8DDBA06D2A77D94600DCB670 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA06C2A77D94600DCB670 /* AddTaskView.swift */; };
+		8DDBA06F2A77E2D200DCB670 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA06E2A77E2D200DCB670 /* EditTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		8DDBA0672A77CA9C00DCB670 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		8DDBA06A2A77D46800DCB670 /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		8DDBA06C2A77D94600DCB670 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		8DDBA06E2A77E2D200DCB670 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				8DDBA0692A77D45F00DCB670 /* Components */,
 				8DDBA0672A77CA9C00DCB670 /* TodoView.swift */,
 				8DDBA06C2A77D94600DCB670 /* AddTaskView.swift */,
+				8DDBA06E2A77E2D200DCB670 /* EditTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				8DDBA06B2A77D46800DCB670 /* TaskCardView.swift in Sources */,
 				8DDBA0652A77C82700DCB670 /* TodoViewModel.swift in Sources */,
 				8DDBA0622A77C6FF00DCB670 /* TodoData.xcdatamodeld in Sources */,
+				8DDBA06F2A77E2D200DCB670 /* EditTaskView.swift in Sources */,
 				8DDBA06D2A77D94600DCB670 /* AddTaskView.swift in Sources */,
 				8DDBA0682A77CA9C00DCB670 /* TodoView.swift in Sources */,
 				8D66C1402A7790AB00BCCF0F /* UbersnapChallengeApp.swift in Sources */,

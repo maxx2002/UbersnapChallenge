@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TaskCardView: View {
     var task: Task
+    @Binding var showEditView: Bool
+    @ObservedObject var vm: TodoViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -20,10 +22,14 @@ struct TaskCardView: View {
                 Spacer()
                 
                 Button {
-                    
+                    showEditView.toggle()
+                    print(task)
                 } label: {
                     Text("Edit")
                         .foregroundColor(.blue)
+                }
+                .sheet(isPresented: $showEditView) {
+                    EditTaskView(vm: vm, task: task)
                 }
             }
             
