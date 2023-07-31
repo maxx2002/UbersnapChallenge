@@ -11,6 +11,8 @@ struct TodoView: View {
     
     @StateObject var vm: TodoViewModel = TodoViewModel()
     
+    @State var showingAddView: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack (alignment: .leading) {
@@ -23,6 +25,18 @@ struct TodoView: View {
                 .listStyle(.plain)
             }
             .navigationTitle("Todo List")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingAddView.toggle()
+                    } label: {
+                        Label("Add Food", systemImage: "plus.circle")
+                    }
+                }
+            }
+            .sheet(isPresented: $showingAddView) {
+                AddTaskView(vm: vm)
+            }
         }
         .navigationViewStyle(.stack)
     }
