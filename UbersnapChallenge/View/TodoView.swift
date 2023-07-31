@@ -16,13 +16,12 @@ struct TodoView: View {
     var body: some View {
         NavigationView {
             VStack (alignment: .leading) {
-                List {
-                    ForEach(vm.tasks) { task in
-                        TaskCardView(task: task)
-                    }
-                    .onDelete(perform: vm.deleteTask)
+                ForEach(vm.tasks) { task in
+                    TaskCardView(task: task)
                 }
-                .listStyle(.plain)
+                .onDelete(perform: vm.deleteTask)
+                
+                Spacer()
             }
             .navigationTitle("Todo List")
             .toolbar {

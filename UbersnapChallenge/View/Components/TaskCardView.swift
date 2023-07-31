@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct TaskCardView: View {
-    
     var task: Task
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
-                Text("Title")
-                    .font(.title)
+                Text(task.title ?? "")
+                    .font(.title2)
                     .bold()
                 
                 Spacer()
@@ -24,32 +23,26 @@ struct TaskCardView: View {
                     
                 } label: {
                     Text("Edit")
+                        .foregroundColor(.blue)
                 }
             }
             
             HStack(alignment: .center, spacing: 4) {
-                Image(systemName: "checkmark.circle.fill")
+                Image(systemName: task.status == "Completed" ? "checkmark.circle.fill" : "xmark.circle.fill")
                     .font(.title3)
-                    .foregroundColor(.green)
+                    .foregroundColor(task.status == "Completed" ? .green : .red)
                 
-                Text("Completed")
+                Text(task.status ?? "")
                     .fontWeight(.semibold)
             }
             
-            Text("Description")
+            Text(task.desc ?? "")
         }
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 16)
                 .stroke(.primary, lineWidth: 2)
         )
-        .padding()
-    }
-}
-
-struct TaskCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskCardView(task: Task())
-//            .preferredColorScheme(.dark)
+        .padding([.horizontal, .bottom])
     }
 }
