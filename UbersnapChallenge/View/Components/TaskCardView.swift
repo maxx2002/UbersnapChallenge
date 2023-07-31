@@ -50,5 +50,8 @@ struct TaskCardView: View {
                 .stroke(.primary, lineWidth: 2)
         )
         .padding([.horizontal, .bottom])
+//        .onAppear {
+//            print(task)
+//        }
     }
 }

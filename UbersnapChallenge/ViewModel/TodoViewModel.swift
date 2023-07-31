@@ -12,6 +12,9 @@ class TodoViewModel: ObservableObject {
     let container = NSPersistentContainer(name: "TodoData")
     @Published var tasks: [Task] = []
     
+    @Published var currentWeek: [Date] = []
+    @Published var currentDay: Date = Date()
+    
     init() {
         container.loadPersistentStores { desc, error in
             if let error = error {
@@ -20,6 +23,7 @@ class TodoViewModel: ObservableObject {
         }
         
         fetch()
+        fetchCurrentWeek()
     }
     
     func fetch() {
@@ -66,11 +70,37 @@ class TodoViewModel: ObservableObject {
         container.viewContext.delete(task)
         
         save()
+    }
+    
+    func fetchCurrentWeek() {
+        let today = Date()
+        let calender = Calendar.current
         
-//        withAnimation {
-//            offsets.map { tasks[$0] }.forEach(container.viewContext.delete)
-//
-//            save()
-//        }
+        let week = calender.dateInterval(of: .weekOfMonth, for: today)
+        
+        guard let firstWeekDay = week?.start else {
+            return
+        }
+        print(self.currentDay)
+        (1...7).forEach { day in
+            if let weekday = calender.date(byAdding: .day, value: day, to: firstWeekDay) {
+                currentWeek.append(weekday)
+            }
+        }
+    }
+    
+    func extractDate(date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = format
+//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        return formatter.string(from: date)
+    }
+    
+    func isToday(date: Date) -> Bool {
+        let calendar = Calendar.current
+
+        return calendar.isDate(currentDay, inSameDayAs: date)
     }
 }
