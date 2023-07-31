@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreData
-import SwiftUI
 
 class TodoViewModel: ObservableObject {
     let container = NSPersistentContainer(name: "TodoData")
@@ -63,11 +62,15 @@ class TodoViewModel: ObservableObject {
         save()
     }
     
-    func deleteTask(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { tasks[$0] }.forEach(container.viewContext.delete)
-            
-            save()
-        }
+    func deleteTask(task: Task) {
+        container.viewContext.delete(task)
+        
+        save()
+        
+//        withAnimation {
+//            offsets.map { tasks[$0] }.forEach(container.viewContext.delete)
+//
+//            save()
+//        }
     }
 }

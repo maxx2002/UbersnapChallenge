@@ -53,6 +53,21 @@ struct EditTaskView: View {
             
             Section {
                 Button {
+                    vm.deleteTask(task: task)
+                    dismiss()
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Delete Task")
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                }
+            }
+            .listRowBackground(Color.red)
+            
+            Section {
+                Button {
                     vm.editTask(task: task, title: title, desc: desc, status: status, date: date)
                     dismiss()
                 } label: {
