@@ -48,7 +48,7 @@ class TodoViewModel: ObservableObject {
         task.title = title
         task.desc = desc
         task.status = status
-        task.date = Date()
+        task.date = date
         
         save()
     }
@@ -57,7 +57,7 @@ class TodoViewModel: ObservableObject {
         task.title = title
         task.desc = desc
         task.status = status
-        task.date = Date()
+        task.date = date
         
         save()
     }

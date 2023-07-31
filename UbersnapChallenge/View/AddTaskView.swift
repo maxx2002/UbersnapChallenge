@@ -44,7 +44,7 @@ struct AddTaskView: View {
                 } label: {
                     HStack {
                         Spacer()
-                        Text("Submit")
+                        Text("Save")
                             .foregroundColor(.white)
                         Spacer()
                     }

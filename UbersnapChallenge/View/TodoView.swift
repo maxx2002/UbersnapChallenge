@@ -19,6 +19,12 @@ struct TodoView: View {
             VStack (alignment: .leading) {
                 ForEach(vm.tasks) { task in
                     TaskCardView(task: task, showEditView: $showEditView, vm: vm)
+//                        .onTapGesture {
+//                            showEditView.toggle()
+//                        }
+//                        .sheet(isPresented: $showEditView) {
+//                            EditTaskView(vm: vm, task: task)
+//                        }
                 }
                 
                 Spacer()
