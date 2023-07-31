@@ -11,6 +11,7 @@
 		8D66C1422A7790AB00BCCF0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66C1412A7790AB00BCCF0F /* ContentView.swift */; };
 		8D66C1442A7790AD00BCCF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D66C1432A7790AD00BCCF0F /* Assets.xcassets */; };
 		8D66C1472A7790AD00BCCF0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D66C1462A7790AD00BCCF0F /* Preview Assets.xcassets */; };
+		8DDBA0622A77C6FF00DCB670 /* TodoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA0602A77C6FF00DCB670 /* TodoData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8D66C1412A7790AB00BCCF0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D66C1432A7790AD00BCCF0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D66C1462A7790AD00BCCF0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8DDBA0612A77C6FF00DCB670 /* TodoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		8D66C13E2A7790AB00BCCF0F /* UbersnapChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				8DDBA05F2A77C6CD00DCB670 /* Model */,
 				8D66C13F2A7790AB00BCCF0F /* UbersnapChallengeApp.swift */,
 				8D66C1412A7790AB00BCCF0F /* ContentView.swift */,
 				8D66C1432A7790AD00BCCF0F /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				8D66C1462A7790AD00BCCF0F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8DDBA05F2A77C6CD00DCB670 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8DDBA0602A77C6FF00DCB670 /* TodoData.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDBA0622A77C6FF00DCB670 /* TodoData.xcdatamodeld in Sources */,
 				8D66C1422A7790AB00BCCF0F /* ContentView.swift in Sources */,
 				8D66C1402A7790AB00BCCF0F /* UbersnapChallengeApp.swift in Sources */,
 			);
@@ -343,6 +355,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8DDBA0602A77C6FF00DCB670 /* TodoData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8DDBA0612A77C6FF00DCB670 /* TodoData.xcdatamodel */,
+			);
+			currentVersion = 8DDBA0612A77C6FF00DCB670 /* TodoData.xcdatamodel */;
+			path = TodoData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8D66C1342A7790AB00BCCF0F /* Project object */;
 }
