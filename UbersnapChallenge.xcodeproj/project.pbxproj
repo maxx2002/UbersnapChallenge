@@ -12,6 +12,7 @@
 		8D66C1442A7790AD00BCCF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D66C1432A7790AD00BCCF0F /* Assets.xcassets */; };
 		8D66C1472A7790AD00BCCF0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D66C1462A7790AD00BCCF0F /* Preview Assets.xcassets */; };
 		8DDBA0622A77C6FF00DCB670 /* TodoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA0602A77C6FF00DCB670 /* TodoData.xcdatamodeld */; };
+		8DDBA0652A77C82700DCB670 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBA0642A77C82700DCB670 /* TodoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		8D66C1432A7790AD00BCCF0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D66C1462A7790AD00BCCF0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8DDBA0612A77C6FF00DCB670 /* TodoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoData.xcdatamodel; sourceTree = "<group>"; };
+		8DDBA0642A77C82700DCB670 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				8DDBA05F2A77C6CD00DCB670 /* Model */,
+				8DDBA0632A77C81500DCB670 /* ViewModel */,
 				8D66C13F2A7790AB00BCCF0F /* UbersnapChallengeApp.swift */,
 				8D66C1412A7790AB00BCCF0F /* ContentView.swift */,
 				8D66C1432A7790AD00BCCF0F /* Assets.xcassets */,
@@ -76,6 +79,14 @@
 				8DDBA0602A77C6FF00DCB670 /* TodoData.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8DDBA0632A77C81500DCB670 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DDBA0642A77C82700DCB670 /* TodoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDBA0652A77C82700DCB670 /* TodoViewModel.swift in Sources */,
 				8DDBA0622A77C6FF00DCB670 /* TodoData.xcdatamodeld in Sources */,
 				8D66C1422A7790AB00BCCF0F /* ContentView.swift in Sources */,
 				8D66C1402A7790AB00BCCF0F /* UbersnapChallengeApp.swift in Sources */,
