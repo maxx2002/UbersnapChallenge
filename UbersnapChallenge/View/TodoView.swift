@@ -55,13 +55,6 @@ struct TodoView: View {
                 
                 ForEach(vm.tasks) { task in
                     TaskCardView(task: task, showEditView: $showEditView, vm: vm)
-//                    Text(task.title ?? "")
-//                        .onTapGesture {
-//                            showEditView.toggle()
-//                        }
-//                        .sheet(isPresented: $showEditView) {
-//                            EditTaskView(vm: vm, task: task)
-//                        }
                 }
                 
                 Spacer()
@@ -81,6 +74,9 @@ struct TodoView: View {
             }
             .sheet(isPresented: $showAddView) {
                 AddTaskView(vm: vm)
+            }
+            .sheet(isPresented: $showEditView) {
+                EditTaskView(vm: vm)
             }
         }
         .navigationViewStyle(.stack)

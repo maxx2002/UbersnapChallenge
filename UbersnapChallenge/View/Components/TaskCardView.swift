@@ -22,14 +22,13 @@ struct TaskCardView: View {
                 Spacer()
                 
                 Button {
+                    vm.selectedTask = task
                     showEditView.toggle()
+                    
                     print(task)
                 } label: {
                     Text("Edit")
                         .foregroundColor(.blue)
-                }
-                .sheet(isPresented: $showEditView) {
-                    EditTaskView(vm: vm, task: task)
                 }
             }
             

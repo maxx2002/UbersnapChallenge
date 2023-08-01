@@ -16,7 +16,6 @@ struct EditTaskView: View {
     @State private var date = Date()
     
     @ObservedObject var vm: TodoViewModel
-    var task: Task
     
     let statusChoice = ["Not completed", "Completed"]
     
@@ -53,7 +52,7 @@ struct EditTaskView: View {
             
             Section {
                 Button {
-                    vm.deleteTask(task: task)
+                    vm.deleteTask(task: vm.selectedTask)
                     dismiss()
                 } label: {
                     HStack {
@@ -68,7 +67,7 @@ struct EditTaskView: View {
             
             Section {
                 Button {
-                    vm.editTask(task: task, title: title, desc: desc, status: status, date: date)
+                    vm.editTask(task: vm.selectedTask, title: title, desc: desc, status: status, date: date)
                     dismiss()
                 } label: {
                     HStack {
@@ -82,18 +81,18 @@ struct EditTaskView: View {
             .listRowBackground(Color.blue)
         }
         .onAppear {
-            title = task.title ?? ""
-            desc = task.desc ?? ""
-            status = task.status ?? ""
-            date = task.date ?? Date()
+            title = vm.selectedTask.title ?? ""
+            desc = vm.selectedTask.desc ?? ""
+            status = vm.selectedTask.status ?? ""
+            date = vm.selectedTask.date ?? Date()
             
-            print("Edit task view \(task)")
+            print("Edit task view \(vm.selectedTask)")
         }
     }
 }
 
 struct EditTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        EditTaskView(vm: TodoViewModel(), task: Task())
+        EditTaskView(vm: TodoViewModel())
     }
 }

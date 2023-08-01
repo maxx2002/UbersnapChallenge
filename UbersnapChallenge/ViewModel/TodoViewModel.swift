@@ -11,6 +11,7 @@ import CoreData
 class TodoViewModel: ObservableObject {
     let container = NSPersistentContainer(name: "TodoData")
     @Published var tasks: [Task] = []
+    @Published var selectedTask: Task = Task()
     
     @Published var currentWeek: [Date] = []
     @Published var currentDay: Date = Date()
