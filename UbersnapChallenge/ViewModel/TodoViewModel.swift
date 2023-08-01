@@ -30,6 +30,8 @@ class TodoViewModel: ObservableObject {
     
     func fetchCoreDataRequest() {
         let request = NSFetchRequest<Task>(entityName: "Task")
+        let sort = NSSortDescriptor(key: "status", ascending: false)
+        request.sortDescriptors = [sort]
         
         do {
             tasks = try container.viewContext.fetch(request)
@@ -105,11 +107,5 @@ class TodoViewModel: ObservableObject {
         let calendar = Calendar.current
 
         return calendar.isDate(currentDay, inSameDayAs: date)
-    }
-    
-    func isSunday(_ date: Date) -> Bool {
-        let calendar = Calendar.current
-        let weekday = calendar.component(.weekday, from: date)
-        return weekday == 1
     }
 }
