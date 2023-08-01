@@ -85,8 +85,6 @@ struct EditTaskView: View {
             desc = vm.selectedTask.desc ?? ""
             status = vm.selectedTask.status ?? ""
             date = vm.selectedTask.date ?? Date()
-            
-            print("Edit task view \(vm.selectedTask)")
         }
     }
 }

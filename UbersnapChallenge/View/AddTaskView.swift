@@ -36,6 +36,9 @@ struct AddTaskView: View {
             } header: {
                 Text("Task Due Date")
             }
+            .onAppear {
+                date = vm.currentDay
+            }
             
             Section {
                 Button {

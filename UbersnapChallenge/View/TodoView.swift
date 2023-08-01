@@ -18,29 +18,29 @@ struct TodoView: View {
         NavigationView {
             VStack (alignment: .leading) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack (spacing: 10) {
+                    HStack (spacing: 8) {
                         ForEach(vm.currentWeek, id: \.self) { day in
-                            VStack (spacing: 10) {
+                            VStack (spacing: 8) {
                                 Text(vm.extractDate(date: day, format: "dd"))
-                                    .font(.system(size: 15))
+                                    .font(.system(size: 16))
                                     .bold()
                                 
                                 Text(vm.extractDate(date: day, format: "EEE"))
                                     .font(.system(size: 14))
                                 
                                 Circle()
-                                    .fill(.white)
+                                    .fill(Color(UIColor.systemBackground))
                                     .frame(width: 8, height: 8)
                                     .opacity(vm.isToday(date: day) ? 1 : 0)
                             }
                             .foregroundStyle(vm.isToday(date: day) ? .primary : .secondary)
-                            .foregroundColor(vm.isToday(date: day) ? .white : .black)
+                            .foregroundColor(vm.isToday(date: day) ? Color(UIColor.systemBackground) : Color(UIColor.label))
                             .frame(width: 45, height: 90)
                             .background(
                                 ZStack {
                                     if vm.isToday(date: day) {
                                         Capsule()
-                                            .fill(.black)
+                                            .fill(Color(UIColor.label))
                                     }
                                 }
                             )
@@ -54,7 +54,9 @@ struct TodoView: View {
                 }
                 
                 ForEach(vm.tasks) { task in
-                    TaskCardView(task: task, showEditView: $showEditView, vm: vm)
+                    if vm.isToday(date: task.date ?? Date()) {
+                        TaskCardView(task: task, showEditView: $showEditView, vm: vm)
+                    }
                 }
                 
                 Spacer()
@@ -62,7 +64,7 @@ struct TodoView: View {
             .navigationTitle("Todo List")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Text(vm.extractDate(date: vm.currentDay, format: "E, d MMM y"))
+                    DatePicker("", selection: $vm.currentDay, displayedComponents: .date)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -77,6 +79,9 @@ struct TodoView: View {
             }
             .sheet(isPresented: $showEditView) {
                 EditTaskView(vm: vm)
+            }
+            .onChange(of: vm.currentDay) { _ in
+                vm.fetchCurrentWeek()
             }
         }
         .navigationViewStyle(.stack)

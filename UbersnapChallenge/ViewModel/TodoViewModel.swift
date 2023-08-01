@@ -23,11 +23,12 @@ class TodoViewModel: ObservableObject {
             }
         }
         
-        fetch()
+        fetchCoreDataRequest()
+        
         fetchCurrentWeek()
     }
     
-    func fetch() {
+    func fetchCoreDataRequest() {
         let request = NSFetchRequest<Task>(entityName: "Task")
         
         do {
@@ -40,7 +41,7 @@ class TodoViewModel: ObservableObject {
     func save() {
         do {
             try container.viewContext.save()
-            fetch()
+            fetchCoreDataRequest()
             print("Data Saved")
         } catch {
             print("Could not save the data")
@@ -74,17 +75,19 @@ class TodoViewModel: ObservableObject {
     }
     
     func fetchCurrentWeek() {
-        let today = Date()
-        let calender = Calendar.current
+        self.currentWeek = []
         
-        let week = calender.dateInterval(of: .weekOfMonth, for: today)
+        let calendar = Calendar.current
+        
+        let week = calendar.dateInterval(of: .weekOfMonth, for: self.currentDay)
         
         guard let firstWeekDay = week?.start else {
             return
         }
-        print(self.currentDay)
-        (1...7).forEach { day in
-            if let weekday = calender.date(byAdding: .day, value: day, to: firstWeekDay) {
+        
+        (0...6).forEach { day in
+            if var weekday = calendar.date(byAdding: .day, value: day, to: firstWeekDay) {
+                weekday = calendar.date(byAdding: .hour, value: 7, to: weekday) ?? Date()
                 currentWeek.append(weekday)
             }
         }
@@ -94,7 +97,6 @@ class TodoViewModel: ObservableObject {
         let formatter = DateFormatter()
         
         formatter.dateFormat = format
-//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         return formatter.string(from: date)
     }
@@ -103,5 +105,11 @@ class TodoViewModel: ObservableObject {
         let calendar = Calendar.current
 
         return calendar.isDate(currentDay, inSameDayAs: date)
+    }
+    
+    func isSunday(_ date: Date) -> Bool {
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: date)
+        return weekday == 1
     }
 }

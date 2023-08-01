@@ -24,8 +24,6 @@ struct TaskCardView: View {
                 Button {
                     vm.selectedTask = task
                     showEditView.toggle()
-                    
-                    print(task)
                 } label: {
                     Text("Edit")
                         .foregroundColor(.blue)
@@ -49,8 +47,5 @@ struct TaskCardView: View {
                 .stroke(.primary, lineWidth: 2)
         )
         .padding([.horizontal, .bottom])
-//        .onAppear {
-//            print(task)
-//        }
     }
 }
