@@ -53,13 +53,14 @@ struct TodoView: View {
                     .padding()
                 }
                 
-                ForEach(vm.tasks) { task in
-                    if vm.isToday(date: task.date ?? Date()) {
-                        TaskCardView(task: task, showEditView: $showEditView, vm: vm)
+                ScrollView {
+                    ForEach(vm.tasks) { task in
+                        if vm.isToday(date: task.date ?? Date()) {
+                            TaskCardView(task: task, showEditView: $showEditView, vm: vm)
+                        }
                     }
+                    Spacer()
                 }
-                
-                Spacer()
             }
             .navigationTitle("Todo List")
             .toolbar {

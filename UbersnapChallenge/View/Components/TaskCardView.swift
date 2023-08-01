@@ -46,6 +46,7 @@ struct TaskCardView: View {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(.primary, lineWidth: 2)
         )
-        .padding([.horizontal, .bottom])
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 }

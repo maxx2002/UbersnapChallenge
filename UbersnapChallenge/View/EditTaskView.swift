@@ -78,7 +78,8 @@ struct EditTaskView: View {
                     }
                 }
             }
-            .listRowBackground(Color.blue)
+            .listRowBackground(title.isEmpty || desc.isEmpty ? Color.gray : Color.blue)
+            .disabled(title.isEmpty || desc.isEmpty)
         }
         .onAppear {
             title = vm.selectedTask.title ?? ""

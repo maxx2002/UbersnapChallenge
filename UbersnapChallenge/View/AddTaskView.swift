@@ -53,7 +53,8 @@ struct AddTaskView: View {
                     }
                 }
             }
-            .listRowBackground(Color.blue)
+            .listRowBackground(title.isEmpty || desc.isEmpty ? Color.gray : Color.blue)
+            .disabled(title.isEmpty || desc.isEmpty)
         }
     }
 }
